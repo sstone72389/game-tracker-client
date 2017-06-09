@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+    background-image: url('http://res.cloudinary.com/dfu4pwocw/image/upload/v1497023545/GAMING_game_video_computer_gamer_poster_2560x1440_uzj2bs.jpg');
+    background-size: 100%;
+}
+
 .hideOnStart,
 .hideOnStartTwo {
   display: none;
@@ -28,6 +33,7 @@ nav {
 
 h1 {
   font-size: 28px;
+  color: white;
   margin-left: 34%;
   margin-top: 10px;
   text-align: center;
