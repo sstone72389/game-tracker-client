@@ -1,2 +1,35 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.hideOnStart,
+.hideOnStartTwo {
+  display: none;
+}
+
+nav {
+  // display: inline block
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 47px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+h1 {
+  font-size: 28px;
+  margin-left: 34%;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+}
