@@ -52,7 +52,7 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = (data) => {
-  $('.mess-display').text('Come Back Soon!').fadeTo(2000, 1)
+  $('.mess-display').text('Come Back Soon!').fadeTo(0, 1)
   $('.mess-display').show()
   $('.hideOnStart').hide()
   $('.hideOnStartTwo').hide()
