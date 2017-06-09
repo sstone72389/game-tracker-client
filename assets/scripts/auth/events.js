@@ -25,11 +25,6 @@ const onSignIn = function (event) {
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
-    .then(() => {
-      api.showsTasks(data)
-        .then(ui.showTaskSuccess)
-        .catch(ui.showTaskFailure)
-    })
     .catch(ui.signInFailure)
 }
 
