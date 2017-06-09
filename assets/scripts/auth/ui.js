@@ -10,7 +10,7 @@ const signUpSuccess = (data) => {
 
 const signUpFailure = () => {
   console.log('sign up failure')
-  $('.mess-display').text('Sorry, Something went wrong signing up :-(').fadeIn().delay(2000).fadeOut('slow')
+  $('.mess-display').text('Sorry, Something went wrong signing up :-(').fadeTo(0, 1)
   $('#signUpModal').modal('hide')
   $('input').val('')
 }
@@ -18,7 +18,7 @@ const signUpFailure = () => {
 // add shows where applicable
 const signInSuccess = (data) => {
   console.log('sign in success')
-  $('.mess-display').text('Welcome to Game Tracker!')
+  $('.mess-display').text('Welcome to Game Tracker!').fadeTo(0, 1)
   $('.mess-display').show()
   $('.hideOnStart').show()
   $('.hideOnStartTwo').show()
@@ -32,25 +32,27 @@ const signInSuccess = (data) => {
 }
 
 const signInFailure = () => {
-  $('.mess-display').text('Sorry, Something went wrong signing in').fadeIn().delay(2000).fadeOut('slow')
+  $('.mess-display').text('Sorry, Something went wrong signing in').fadeTo(0, 1)
   $('#signInModal').modal('hide')
   $('input').val('')
 }
 
 const changePasswordSuccess = (data) => {
-  $('.mess-display').text('Password changed successfully').fadeIn().delay(2000).fadeOut('slow')
+  $('.mess-display').text(' ').fadeTo(2000, 1)
+  $('.mess-display').text('Password changed successfully').fadeTo(2000, 0)
   $('#changePasswordModal').modal('hide')
   $('input').val('')
 }
 
 const changePasswordFailure = () => {
-  $('.mess-display').text('Error changing password').fadeIn().delay(2000).fadeOut('slow')
+  $('.mess-display').text(' ').fadeTo(3000, 1)
+  $('.mess-display').text('Error changing password').fadeTo(2000, 0)
   $('#changePasswordModal').modal('hide')
   $('input').val('')
 }
 
 const signOutSuccess = (data) => {
-  $('.mess-display').text('Come Back Soon!')
+  $('.mess-display').text('Come Back Soon!').fadeTo(2000, 1)
   $('.mess-display').show()
   $('.hideOnStart').hide()
   $('.hideOnStartTwo').hide()
@@ -62,7 +64,7 @@ const signOutSuccess = (data) => {
 }
 
 const signOutFailure = () => {
-  $('.mess-display').text('Sorry, Something went wrong :-(').fadeIn().delay(2000).fadeOut('slow')
+  $('.mess-display').text('Sorry, Something went wrong :-(').fadeTo(0, 1)
   $('#signOutModal').modal('hide')
 }
 
