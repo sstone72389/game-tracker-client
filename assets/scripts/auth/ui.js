@@ -4,13 +4,13 @@ const api = require('./api.js')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const signUpSuccess = (data) => {
-  console.log('sign up success')
   $('#signUpModal').modal('hide')
   $('input').val('')
 }
 
 const signUpFailure = () => {
   console.log('sign up failure')
+  $('.mess-display').text('Sorry, Something went wrong signing up :-(').fadeIn().delay(2000).fadeOut('slow')
   $('#signUpModal').modal('hide')
   $('input').val('')
 }
@@ -18,38 +18,40 @@ const signUpFailure = () => {
 // add shows where applicable
 const signInSuccess = (data) => {
   console.log('sign in success')
+  $('.mess-display').text('Welcome to Game Tracker!')
+  $('.mess-display').show()
   $('.hideOnStart').show()
   $('.hideOnStartTwo').show()
   $('.hideOnSignIn').hide()
   $('.hideOnSignInTwo').hide()
   $('#signInModal').modal('hide')
   $('input').val('')
-  $('.center').empty()
 
   // store the user object as per below
   store.user = data.user
 }
 
 const signInFailure = () => {
-  console.log('sign in failure')
+  $('.mess-display').text('Sorry, Something went wrong signing in').fadeIn().delay(2000).fadeOut('slow')
   $('#signInModal').modal('hide')
   $('input').val('')
 }
 
 const changePasswordSuccess = (data) => {
-  console.log('pw change success')
+  $('.mess-display').text('Password changed successfully').fadeIn().delay(2000).fadeOut('slow')
   $('#changePasswordModal').modal('hide')
   $('input').val('')
 }
 
 const changePasswordFailure = () => {
-  console.log('pw failure')
+  $('.mess-display').text('Error changing password').fadeIn().delay(2000).fadeOut('slow')
   $('#changePasswordModal').modal('hide')
   $('input').val('')
 }
 
 const signOutSuccess = (data) => {
-  console.log('sign out success')
+  $('.mess-display').text('Come Back Soon!')
+  $('.mess-display').show()
   $('.hideOnStart').hide()
   $('.hideOnStartTwo').hide()
   $('.hideOnSignIn').show()
@@ -60,7 +62,7 @@ const signOutSuccess = (data) => {
 }
 
 const signOutFailure = () => {
-  console.log('sign out failure')
+  $('.mess-display').text('Sorry, Something went wrong :-(').fadeIn().delay(2000).fadeOut('slow')
   $('#signOutModal').modal('hide')
 }
 
