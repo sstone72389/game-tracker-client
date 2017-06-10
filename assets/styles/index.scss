@@ -2,8 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background: url("http://res.cloudinary.com/dfu4pwocw/image/upload/v1497023545/GAMING_game_video_computer_gamer_poster_2560x1440_uzj2bs.jpg") no-repeat fixed top left;
-  background-size: cover;
+  background: #000000;
 }
 
 .hideOnStart,
@@ -48,9 +47,14 @@ h2 {
   font-family: 'Play', sans-serif;
 }
 
+#password-succ {
+  font-size: 22px;
+  color: #C0C0C0;
+}
+
 .btn-transparent {
   background: transparent;
-  color: white;
+  color: #cc181e;
   font-weight: 600;
   -webkit-transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
   -moz-transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
@@ -62,11 +66,24 @@ h2 {
 .btn-transparent:focus {
   background: transparent;
   outline: none;
-  color: white;
+  color: #cc181e;
 }
 
 .btn-transparent:hover {
-  color: lightgray;
+  color: darkred;
+}
+
+.btn-transparent:active {
+  outline: none;
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 input {
@@ -84,12 +101,25 @@ input {
 }
 
 .mess-display {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 1.5em;
+  // padding: 2em .5em .5em;
+}
+
+#welcome-text{
   text-align: center;
   color: white;
 }
 
+.desc-divider {
+  text-align: center;
+  width: 100%;
+}
+
 p {
-  color: white;
+  color: #C0C0C0;
   font-family: 'Play', sans-serif;
   font-size: 23px;
 }
@@ -98,9 +128,6 @@ p {
   text-align: center;
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  body {
-    background: black;
-  }
 
   h1 {
     font-size: 40px;
@@ -115,9 +142,6 @@ p {
   }
 }
 @media (max-width: 600px) {
-  body {
-    background: black;
-  }
 
   h1 {
     font-size: 18px;

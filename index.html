@@ -25,13 +25,22 @@
   <br>
   <br>
   <br>
+  <h2 id="welcome-text"> Welcome to Game Tracker!</h2>
 
-  <h2 class="mess-display"> Welcome to Game Tracker!</h2>
+  <div class="mess-display">
+    <h2 id="password-succ"></h2>
+    <h2 id="hideMe">&nbsp;</h2>
+  </div>
   <br>
   <br>
+
   <div class="page-description">
     <p>Welcome to Game Tracker. This blog will help you share and manage your gaming videos. You can host your YouTube videos right on this site to help gain more followers, or to just keep track of your progress. Find a secret item? Want to share it with
       the gaming world? Start posting today!</p>
+  </div>
+
+  <div class="desc-divider">
+    <img src="https://res.cloudinary.com/dfu4pwocw/image/upload/v1497052116/GAMING_game_video_computer_gamer_poster_2560x1440_x0gzov.jpg" alt="controller divider">
   </div>
 
   <!-- Sign Up Modal -->
@@ -47,9 +56,15 @@
         <div class="modal-body">
           <form id="sign-up">
             <fieldset>
-              <input name="credentials[email]" type="text" placeholder="create account">
-              <input name="credentials[password]" type="password" placeholder="password">
-              <input name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+              <div class="form-group">
+                <input class="form-control" name="credentials[email]" type="text" placeholder="create account">
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="credentials[password]" type="password" placeholder="password">
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+              </div>
               <button class="btn btn-primary" type="submit" name="submit">Sign Up!</button>
             </fieldset>
           </form>
@@ -73,8 +88,12 @@
         <div class="modal-body">
           <form id="sign-in">
             <fieldset>
-              <input name="credentials[email]" type="text" placeholder="your username">
-              <input name="credentials[password]" type="password" placeholder="password">
+              <div class="form-group">
+                <input class="form-control" name="credentials[email]" type="text" placeholder="your username">
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="credentials[password]" type="password" placeholder="password">
+              </div>
               <button class="btn btn-primary" type="submit" name="submit">Sign In!</button>
             </fieldset>
           </form>
@@ -122,9 +141,13 @@
         <div class="modal-body">
           <form id="change-password">
             <fieldset>
-              <input name="passwords[old]" type="password" placeholder="old password">
-              <input name="passwords[new]" type="password" placeholder=" new password">
-              <button class="btn btn-primary" type="submit" name="submit">Change Password!</button>
+              <div class="form-group">
+                <input class="form-control" name="passwords[old]" type="password" placeholder="old password">
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="passwords[new]" type="password" placeholder=" new password">
+              </div>
+              <button class="btn btn-primary" type="submit" name="submit">Submit</button>
             </fieldset>
           </form>
         </div>
