@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background: #000000;
+  background: #000;
 }
 
 .hideOnStart,
@@ -19,6 +19,7 @@ nav {
   width: 100%;
   text-align: center;
   z-index: 1000;
+  background: #000;
 }
 
 .left {
@@ -101,7 +102,7 @@ input {
   // padding: 2em .5em .5em;
 }
 
-#welcome-text{
+#welcome-text {
   text-align: center;
   color: white;
 }
@@ -119,8 +120,20 @@ p {
 .page-description {
   text-align: center;
 }
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
+footer {
+  position: absolute;
+  color: white;
+  font-family: 'Play', sans-serif;
+  font-size: 17px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #cc181e;
+  text-align: center;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
   h1 {
     font-size: 40px;
   }
@@ -134,7 +147,6 @@ p {
   }
 }
 @media (max-width: 600px) {
-
   h1 {
     font-size: 18px;
     width: 50%;
