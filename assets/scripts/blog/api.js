@@ -35,12 +35,10 @@ const removeById = (data) => {
   })
 }
 
-// updates without using id via ui and events code using store
-// see notes in applicable files
-// const onUpdateById = (data, findId) => {
+// const updateById = (data, findId) => {
 //   event.preventDefault()
 //   return $.ajax({
-//     url: config.apiOrigin + '/tasks/' + findId,
+//     url: config.apiOrigin + '/posts/' + findId,
 //     method: 'PATCH',
 //     headers: {
 //       Authorization: 'Token token=' + store.user.token
@@ -53,5 +51,5 @@ module.exports = {
   addPost,
   showPosts,
   removeById
-  // onUpdateById
+  // updateById
 }

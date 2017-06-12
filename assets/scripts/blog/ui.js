@@ -27,25 +27,26 @@ const onRemoveId = (event) => {
   .catch(removePostFailure)
 }
 
-// requires store and when first edit button is clicked
-// this is used to pass on to the modals click handler in events
-// (onUpdateTask function)
 // const onUpdateId = (event) => {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
 //   const findId = $(event.target).attr('data-id')
-//   store.currentId = findId
+//   api.updateById(findId)
+//     .then(updatePostSuccess)
+//   .then(() => {
+//     api.showPosts()
+//     .then(showPostSuccess)
+//     .catch(showPostFailure)
+//   })
+//   .catch(updatePostFailure)
 // }
 
-// edit task button launches the above code
+// edit/remove post button launches the above code
 const showPostSuccess = (response) => {
   console.log('show posts success')
   console.log(response)
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
   $('.post-display').html(showPostsHtml)
-  // $('.UAtext').text('Launch ahead with Space-Out!')
   $('.remove-post-button').on('click', onRemoveId)
-  // $('.edit-task-button').on('click', onUpdateId)
+  // $('.edit-post-button').on('click', onUpdateId)
 }
 
 const showPostFailure = () => {
@@ -62,16 +63,12 @@ const removePostFailure = (response) => {
   console.log('remove post success', response)
 }
 
-// const UpdateTaskSuccess = (response) => {
-//   $('input').val('')
-//   $('#updateTaskModal').modal('hide')
-//   // $('.center').empty()
+// const updatePostSuccess = (response) => {
+//   console.log('update success')
 // }
 //
-// const UpdateTaskFailure = (response) => {
-//   $('.UAtext').text('Houston, we have a problem... cannot update task')
-//   $('input').val('')
-//   $('#updateTaskModal').modal('hide')
+// const updatePostFailure = (response) => {
+//   console.log('update failure')
 // }
 
 module.exports = {
@@ -79,4 +76,6 @@ module.exports = {
   addPostFailure,
   showPostFailure,
   showPostSuccess
+  // updatePostSuccess,
+  // updatePostFailure
 }
