@@ -4,7 +4,8 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
-
+const blogAPI = require('../blog/api.js')
+const blogUI = require('../blog/ui.js')
 // chains sign in to allow auto-sign in functionality
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -25,6 +26,11 @@ const onSignIn = function (event) {
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(() => {
+      blogAPI.showPosts()
+      .then(blogUI.showPostSuccess)
+      .catch(blogUI.showPostFailure)
+    })
     .catch(ui.signInFailure)
 }
 

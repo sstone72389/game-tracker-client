@@ -17,11 +17,11 @@ const onShowPosts = function (event) {
 const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  if (data.post.name.length >= 1 && data.post.title.length >= 1 && data.post.content.length >= 1) {
+  if (data.post.title.length >= 1 && data.post.content.length >= 1) {
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {
-        api.showsPosts(data)
+        api.showPosts(data)
           .then(ui.showPostSuccess)
           .catch(ui.showPostFailure)
       })

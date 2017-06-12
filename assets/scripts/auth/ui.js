@@ -55,6 +55,7 @@ const signOutSuccess = (data) => {
   $('.hideOnSignIn').show()
   $('.hideOnSignInTwo').show()
   $('#signOutModal').modal('hide')
+  $('.post-display').empty()
   // store the user with a value of null as per below
   store.user = null
 }

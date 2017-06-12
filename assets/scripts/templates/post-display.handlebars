@@ -1,11 +1,14 @@
 {{#each posts as |post|}}
 
-  <ul data-id="{{post.id}}">
-    <li>{{post.name}}
-      <!-- <button class="edit-post-button btn btn-transparent-four" data-toggle="modal" data-target="#updateTaskModal" data-id="{{post.id}}">EDIT</button> -->
-      <button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">DELETE</button></li>
-      <li>{{post.title}}</li>
+  <ul class="post-list" data-id="{{post.id}}">
+    <div class="post-name">
+      <li>{{post.title}}<button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">DELETE</button></li>
+    </div>
+    <!-- <button class="edit-post-button btn btn-transparent-four" data-toggle="modal" data-target="#updateTaskModal" data-id="{{post.id}}">EDIT</button> -->
+    <!-- <li>{{post.title}}</li> -->
+    <div class="post-content">
       <li>{{post.content}}</li>
-</ul>
+    </div>
+  </ul>
 
 {{/each}}
