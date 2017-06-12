@@ -2,9 +2,9 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const addsTask = (data) => {
+const addPost = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/tasks',
+    url: config.apiOrigin + '/posts',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -13,17 +13,17 @@ const addsTask = (data) => {
   })
 }
 
-// const showsTasks = (data) => {
-//   return $.ajax({
-//     url: config.apiOrigin + '/tasks/',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
-//
+const showPosts = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/posts/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 // const onRemoveById = (data) => {
 //   return $.ajax({
 //     url: config.apiOrigin + '/tasks/' + data,
@@ -50,8 +50,8 @@ const addsTask = (data) => {
 // }
 
 module.exports = {
-  addsTask,
-  showsTasks,
-  onRemoveById,
-  onUpdateById
+  addPost,
+  showPosts
+  // onRemoveById,
+  // onUpdateById
 }

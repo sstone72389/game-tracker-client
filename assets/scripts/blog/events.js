@@ -5,28 +5,29 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
-// const showTasks = function (event) {
-//   event.preventDefault()
-//   api.showsTasks()
-//     .then(ui.showTaskSuccess)
-//     .catch(ui.showTaskFailure)
-// }
+const onShowPosts = function (event) {
+  event.preventDefault()
+  console.log('clicked show button')
+  api.showPosts()
+    .then(ui.showPostSuccess)
+    .catch(ui.showPostFailure)
+}
 
 // chains showTask to allow list at all times
-const addTask = function (event) {
+const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  if (data.task.name.length >= 1) {
-    api.addsTask(data)
-      .then(ui.addTaskSuccess)
-      .then(() => {
-        api.showsTasks(data)
-          .then(ui.showTaskSuccess)
-          .catch(ui.showTaskFailure)
-      })
+  if (data.post.name.length >= 1 && data.post.title.length >= 1 && data.post.content.length >= 1) {
+    api.addPost(data)
+      .then(ui.addPostSuccess)
+      // .then(() => {
+      //   api.showsPosts(data)
+      //     .then(ui.showPostSuccess)
+      //     .catch(ui.showPostFailure)
+      // })
       .catch(ui.addTaskFailure)
   } else {
-    $('.UAtext').text('Houston, please enter a valid task...')
+    console.log('please fill in all fields')
     $('input').val('')
   }
 }
@@ -49,9 +50,9 @@ const addTask = function (event) {
 // }
 
 const addHandlers = () => {
-  $('#new-task').on('submit', addTask)
-  $('#show-tasks').on('submit', showTasks)
-  $('#update-task').on('submit', onUpdateTask)
+  $('#new-post').on('submit', onAddPost)
+  $('#show-posts').on('submit', onShowPosts)
+  // $('#update-task').on('submit', onUpdateTask)
 }
 
 module.exports = {

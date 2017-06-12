@@ -1,16 +1,18 @@
 'use strict'
 const store = require('../store.js')
-const showTasksTemplate = require('../templates/task-list.handlebars')
+// const showTasksTemplate = require('../templates/task-list.handlebars')
 const api = require('./api.js')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-const addTaskSuccess = () => {
+const addPostSuccess = () => {
   $('input').val('')
+  $('textarea').val('')
+  console.log('add post success')
 }
 
-const addTaskFailure = () => {
+const addPostFailure = () => {
   $('input').val('')
-  $('.mess-display').text('Failure Adding Post')
+  console.log('add post failure')
 }
 
 // const onRemoveId = (event) => {
@@ -36,23 +38,25 @@ const addTaskFailure = () => {
 // }
 
 // edit task button launches the above code
-// const showTaskSuccess = (response) => {
-//   const showTasksHtml = showTasksTemplate({ tasks: response.tasks })
-//   $('.center').html(showTasksHtml)
-//   $('.UAtext').text('Launch ahead with Space-Out!')
-//   $('.remove-task-button').on('click', onRemoveId)
-//   $('.edit-task-button').on('click', onUpdateId)
-// }
-//
-// const showTaskFailure = () => {
-//   $('.UAtext').text('Houston, we have a problem... cannot show tasks')
-// }
-//
+const showPostSuccess = (response) => {
+  console.log('show posts success')
+  console.log(response)
+  // const showTasksHtml = showTasksTemplate({ tasks: response.tasks })
+  // $('.center').html(showTasksHtml)
+  // $('.UAtext').text('Launch ahead with Space-Out!')
+  // $('.remove-task-button').on('click', onRemoveId)
+  // $('.edit-task-button').on('click', onUpdateId)
+}
+
+const showPostFailure = () => {
+  console.log('failure showing posts')
+}
+
 // const removeTaskSuccess = (response) => {
 //   $('input').val('')
 //   // $('.center').empty()
 // }
-//
+
 // const removeTaskFailure = (response) => {
 //   $('.UAtext').text('Houston, we have a problem...failure removing task')
 //   $('input').val('')
@@ -71,6 +75,8 @@ const addTaskFailure = () => {
 // }
 
 module.exports = {
-  addTaskSuccess,
-  addTaskFailure
+  addPostSuccess,
+  addPostFailure,
+  showPostFailure,
+  showPostSuccess
 }
