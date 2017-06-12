@@ -12,7 +12,7 @@ nav {
   position: fixed;
   left: 0;
   top: 0;
-  height: 47px;
+  height: 58px;
   width: 100%;
   text-align: center;
   z-index: 1000;
@@ -134,3 +134,13 @@ footer {
 #password-succ {
   color: #cc181e;
 }
+
+.public-videos {
+  text-align: center;
+  padding-bottom: 5em;
+  padding-top: 3em;
+}
+
+// .post-btn {
+//   font-size: 1.3em;
+// }
