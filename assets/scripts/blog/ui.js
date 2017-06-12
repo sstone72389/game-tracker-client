@@ -19,11 +19,11 @@ const onRemoveId = (event) => {
   const findId = $(event.target).attr('data-id')
   api.removeById(findId)
     .then(removePostSuccess)
-  // .then(() => {
-  //   api.showsPosts()
-  //   .then(showPostSuccess)
-  //   .catch(showPostFailure)
-  // })
+  .then(() => {
+    api.showPosts()
+    .then(showPostSuccess)
+    .catch(showPostFailure)
+  })
   .catch(removePostFailure)
 }
 
