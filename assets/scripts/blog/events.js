@@ -13,18 +13,18 @@ const onShowPosts = function (event) {
     .catch(ui.showPostFailure)
 }
 
-// chains showTask to allow list at all times
+// chains showPost to allow posts to be always visible
 const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   if (data.post.name.length >= 1 && data.post.title.length >= 1 && data.post.content.length >= 1) {
     api.addPost(data)
       .then(ui.addPostSuccess)
-      // .then(() => {
-      //   api.showsPosts(data)
-      //     .then(ui.showPostSuccess)
-      //     .catch(ui.showPostFailure)
-      // })
+      .then(() => {
+        api.showsPosts(data)
+          .then(ui.showPostSuccess)
+          .catch(ui.showPostFailure)
+      })
       .catch(ui.addTaskFailure)
   } else {
     console.log('please fill in all fields')

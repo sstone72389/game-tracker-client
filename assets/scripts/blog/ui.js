@@ -1,6 +1,6 @@
 'use strict'
 const store = require('../store.js')
-// const showTasksTemplate = require('../templates/task-list.handlebars')
+const showPostsTemplate = require('../templates/post-display.handlebars')
 const api = require('./api.js')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
@@ -15,17 +15,17 @@ const addPostFailure = () => {
   console.log('add post failure')
 }
 
-// const onRemoveId = (event) => {
-//   const findId = $(event.target).attr('data-id')
-//   api.onRemoveById(findId)
-//     .then(removeTaskSuccess)
-//   .then(() => {
-//     api.showsTasks()
-//     .then(showTaskSuccess)
-//     .catch(showTaskFailure)
-//   })
-//   .catch(removeTaskFailure)
-// }
+const onRemoveId = (event) => {
+  const findId = $(event.target).attr('data-id')
+  api.removeById(findId)
+    .then(removePostSuccess)
+  // .then(() => {
+  //   api.showsPosts()
+  //   .then(showPostSuccess)
+  //   .catch(showPostFailure)
+  // })
+  .catch(removePostFailure)
+}
 
 // requires store and when first edit button is clicked
 // this is used to pass on to the modals click handler in events
@@ -41,10 +41,10 @@ const addPostFailure = () => {
 const showPostSuccess = (response) => {
   console.log('show posts success')
   console.log(response)
-  // const showTasksHtml = showTasksTemplate({ tasks: response.tasks })
-  // $('.center').html(showTasksHtml)
+  const showPostsHtml = showPostsTemplate({ posts: response.posts })
+  $('.post-display').html(showPostsHtml)
   // $('.UAtext').text('Launch ahead with Space-Out!')
-  // $('.remove-task-button').on('click', onRemoveId)
+  $('.remove-post-button').on('click', onRemoveId)
   // $('.edit-task-button').on('click', onUpdateId)
 }
 
@@ -52,16 +52,16 @@ const showPostFailure = () => {
   console.log('failure showing posts')
 }
 
-// const removeTaskSuccess = (response) => {
-//   $('input').val('')
-//   // $('.center').empty()
-// }
+const removePostSuccess = (response) => {
+  $('input').val('')
+  console.log('remove post success', response)
+}
 
-// const removeTaskFailure = (response) => {
-//   $('.UAtext').text('Houston, we have a problem...failure removing task')
-//   $('input').val('')
-// }
-//
+const removePostFailure = (response) => {
+  $('input').val('')
+  console.log('remove post success', response)
+}
+
 // const UpdateTaskSuccess = (response) => {
 //   $('input').val('')
 //   $('#updateTaskModal').modal('hide')

@@ -24,16 +24,16 @@ const showPosts = (data) => {
   })
 }
 
-// const onRemoveById = (data) => {
-//   return $.ajax({
-//     url: config.apiOrigin + '/tasks/' + data,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: data
-//   })
-// }
+const removeById = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/posts/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 
 // updates without using id via ui and events code using store
 // see notes in applicable files
@@ -51,7 +51,7 @@ const showPosts = (data) => {
 
 module.exports = {
   addPost,
-  showPosts
-  // onRemoveById,
+  showPosts,
+  removeById
   // onUpdateById
 }

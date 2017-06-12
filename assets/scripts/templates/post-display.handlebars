@@ -1,0 +1,11 @@
+{{#each posts as |post|}}
+
+  <ul data-id="{{post.id}}">
+    <li>{{post.name}}
+      <!-- <button class="edit-post-button btn btn-transparent-four" data-toggle="modal" data-target="#updateTaskModal" data-id="{{post.id}}">EDIT</button> -->
+      <button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">DELETE</button></li>
+      <li>{{post.title}}</li>
+      <li>{{post.content}}</li>
+</ul>
+
+{{/each}}
