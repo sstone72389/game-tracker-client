@@ -27,17 +27,16 @@ const onRemoveId = (event) => {
   .catch(removePostFailure)
 }
 
-// const onUpdateId = (event) => {
-//   const findId = $(event.target).attr('data-id')
-//   api.updateById(findId)
-//     .then(updatePostSuccess)
-//   .then(() => {
-//     api.showPosts()
-//     .then(showPostSuccess)
-//     .catch(showPostFailure)
-//   })
-//   .catch(updatePostFailure)
-// }
+// requires store and when first edit button is clicked
+// this is used to pass on to the modals click handler in events
+// (onUpdatePost function)
+const onUpdateId = (event) => {
+  console.log('at ui', event)
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const findId = $(event.target).attr('data-id')
+  store.currentId = findId
+}
 
 // edit/remove post button launches the above code
 const showPostSuccess = (response) => {
@@ -46,7 +45,7 @@ const showPostSuccess = (response) => {
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
   $('.post-display').html(showPostsHtml)
   $('.remove-post-button').on('click', onRemoveId)
-  // $('.edit-post-button').on('click', onUpdateId)
+  $('.edit-post-button').on('click', onUpdateId)
 }
 
 const showPostFailure = () => {
@@ -63,19 +62,21 @@ const removePostFailure = (response) => {
   console.log('remove post success', response)
 }
 
-// const updatePostSuccess = (response) => {
-//   console.log('update success')
-// }
-//
-// const updatePostFailure = (response) => {
-//   console.log('update failure')
-// }
+const updatePostSuccess = (response) => {
+  console.log('update success')
+  $('#updatePostModal').modal('hide')
+}
+
+const updatePostFailure = (response) => {
+  console.log('update failure')
+  $('#updatePostModal').modal('hide')
+}
 
 module.exports = {
   addPostSuccess,
   addPostFailure,
   showPostFailure,
-  showPostSuccess
-  // updatePostSuccess,
-  // updatePostFailure
+  showPostSuccess,
+  updatePostSuccess,
+  updatePostFailure
 }

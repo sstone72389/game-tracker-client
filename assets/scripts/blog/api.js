@@ -35,21 +35,21 @@ const removeById = (data) => {
   })
 }
 
-// const updateById = (data, findId) => {
-//   event.preventDefault()
-//   return $.ajax({
-//     url: config.apiOrigin + '/posts/' + findId,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
+const updateById = (data, findId) => {
+  event.preventDefault()
+  return $.ajax({
+    url: config.apiOrigin + '/posts/' + findId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 module.exports = {
   addPost,
   showPosts,
-  removeById
-  // updateById
+  removeById,
+  updateById
 }

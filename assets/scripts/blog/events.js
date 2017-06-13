@@ -25,37 +25,32 @@ const onAddPost = function (event) {
           .then(ui.showPostSuccess)
           .catch(ui.showPostFailure)
       })
-      .catch(ui.addTaskFailure)
+      .catch(ui.addPostfailure)
   } else {
     console.log('please fill in all fields')
     $('input').val('')
   }
 }
 
-// chains showTask to allow list at all times
-// uses store to store the data-id of the task clicked
-// is passed to the api as such:
-// const onUpdateTask = function (event) {
-//   const data = getFormFields(this)
-//   const currentId = store.currentId
-//   event.preventDefault()
-//   api.onUpdateById(data, currentId)
-//     .then(ui.UpdateTaskSuccess)
-//     .then(() => {
-//       api.showsTasks(data)
-//         .then(ui.showTaskSuccess)
-//         .catch(ui.showTaskFailure)
-//     })
-//     .catch(ui.UpdateTaskFailure)
-// }
+const onUpdatePost = function (event) {
+  const data = getFormFields(this)
+  console.log('im at events', this)
+  const currentId = store.currentId
+  event.preventDefault()
+  api.updateById(data, currentId)
+    .then(ui.updatePostSuccess)
+    .then(() => {
+      api.showPosts(data)
+        .then(ui.showPostSuccess)
+        .catch(ui.showPostFailure)
+    })
+    .catch(ui.updatePostFailure)
+}
 
 const addHandlers = () => {
   $('#new-post').on('submit', onAddPost)
   $('#show-posts').on('submit', onShowPosts)
-  // $('.supersize').on('click', function() {
-  //   $('#new-post').toggle()
-  // })
-  // $('#update-task').on('submit', onUpdateTask)
+  $('#update-post').on('submit', onUpdatePost)
 }
 
 module.exports = {
