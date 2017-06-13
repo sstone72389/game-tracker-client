@@ -33,8 +33,8 @@ const onAddPost = function (event) {
 const onShowModal = function (event) {
   const findId = $(event.target).attr('data-id')
   store.currentId = findId
-  const findContent = $(event.target).attr('data-content')
-  $('.modal-content').find('textarea').html(findContent)
+  const findContent = $(event.target).closest('.post-list').find('.post-content li').text()
+  $('.modal-content').find('textarea').val(findContent)
   $('#updatePostModal').modal('show')
 }
 
