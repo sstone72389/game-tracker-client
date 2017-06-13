@@ -6,7 +6,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const addPostSuccess = () => {
   $('input').val('')
-  $('textarea').val('')
+  $('.clear-field').val('')
 }
 
 const addPostFailure = () => {
@@ -34,11 +34,14 @@ const onUpdateId = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   const findId = $(event.target).attr('data-id')
+  const findContent = $(event.target).attr('data-content')
   store.currentId = findId
+  $('.modal-content').find('textarea').html(findContent)
 }
 
 // edit/remove post button launches the above code
 const showPostSuccess = (response) => {
+  store.postResponse = response
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
   $('.post-display').html(showPostsHtml)
   $('.remove-post-button').on('click', onRemoveId)

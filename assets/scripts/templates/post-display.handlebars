@@ -2,10 +2,10 @@
 
   <ul class="post-list col-md-12" data-id="{{post.id}}">
     <div class="post-name">
-      <li>{{post.title}}<button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">Delete</button><button class="edit-post-button btn btn-transparent" data-toggle="modal" data-target="#updatePostModal" data-id="{{post.id}}">Edit</button></li>
+      <li>{{post.title}}<button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">Delete</button><button class="edit-post-button btn btn-transparent" data-toggle="modal" data-target="#updatePostModal" data-content="{{post.content}}" data-id="{{post.id}}">Edit</button></li>
     </div>
 <!-- <li>{{post.title}}</li> -->
-<div class="post-content">
+<div id="post-content">
       <li>{{post.content}}</li>
     </div>
   </ul>
