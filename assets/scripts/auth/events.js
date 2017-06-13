@@ -3,7 +3,6 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store.js')
 const blogAPI = require('../blog/api.js')
 const blogUI = require('../blog/ui.js')
 // chains sign in to allow auto-sign in functionality

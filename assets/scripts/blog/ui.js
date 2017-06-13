@@ -1,8 +1,6 @@
 'use strict'
 const store = require('../store.js')
 const showPostsTemplate = require('../templates/post-display.handlebars')
-const api = require('./api.js')
-const getFormFields = require(`../../../lib/get-form-fields`)
 
 const addPostSuccess = () => {
   $('input').val('')
@@ -12,40 +10,12 @@ const addPostSuccess = () => {
 const addPostFailure = () => {
   $('input').val('')
   $('#succ-fail-mess').text('Failure Adding Post').fadeIn().delay(2000).fadeOut('slow')
-
 }
 
-const onRemoveId = (event) => {
-  const findId = $(event.target).attr('data-id')
-  api.removeById(findId)
-    .then(removePostSuccess)
-  .then(() => {
-    api.showPosts()
-    .then(showPostSuccess)
-    .catch(showPostFailure)
-  })
-  .catch(removePostFailure)
-}
-
-// requires store and when first edit button is clicked
-// this is used to pass on to the modals click handler in events
-// (onUpdatePost function)
-const onUpdateId = (event) => {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  const findId = $(event.target).attr('data-id')
-  const findContent = $(event.target).attr('data-content')
-  store.currentId = findId
-  $('.modal-content').find('textarea').html(findContent)
-}
-
-// edit/remove post button launches the above code
 const showPostSuccess = (response) => {
   store.postResponse = response
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
   $('.post-display').html(showPostsHtml)
-  $('.remove-post-button').on('click', onRemoveId)
-  $('.edit-post-button').on('click', onUpdateId)
 }
 
 const showPostFailure = () => {
@@ -59,7 +29,6 @@ const removePostSuccess = (response) => {
 const removePostFailure = (response) => {
   $('input').val('')
   $('#succ-fail-mess').text('Failure Removing Post').fadeIn().delay(2000).fadeOut('slow')
-
 }
 
 const updatePostSuccess = (response) => {
@@ -77,5 +46,7 @@ module.exports = {
   showPostFailure,
   showPostSuccess,
   updatePostSuccess,
-  updatePostFailure
+  updatePostFailure,
+  removePostSuccess,
+  removePostFailure
 }

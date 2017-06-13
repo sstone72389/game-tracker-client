@@ -1,7 +1,5 @@
 'use strict'
 const store = require('../store.js')
-const api = require('./api.js')
-const getFormFields = require(`../../../lib/get-form-fields`)
 
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('hide')

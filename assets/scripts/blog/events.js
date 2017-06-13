@@ -30,12 +30,19 @@ const onAddPost = function (event) {
   }
 }
 
+const onShowModal = function (event) {
+  const findId = $(event.target).attr('data-id')
+  store.currentId = findId
+  const findContent = $(event.target).attr('data-content')
+  $('.modal-content').find('textarea').html(findContent)
+  $('#updatePostModal').modal('show')
+}
+
 const onUpdatePost = function (event) {
   const data = getFormFields(this)
-  const currentId = store.currentId
   event.preventDefault()
   if (data.post.content.length >= 1) {
-    api.updateById(data, currentId)
+    api.updateById(data, store.currentId)
       .then(ui.updatePostSuccess)
       .then(() => {
         api.showPosts(data)
@@ -49,10 +56,25 @@ const onUpdatePost = function (event) {
   }
 }
 
+const onRemovePost = (event) => {
+  const findId = $(event.target).attr('data-id')
+  api.removeById(findId)
+    .then(ui.removePostSuccess)
+  .then(() => {
+    api.showPosts()
+    .then(ui.showPostSuccess)
+    .catch(ui.showPostFailure)
+  })
+  .catch(ui.removePostFailure)
+}
+
 const addHandlers = () => {
   $('#new-post').on('submit', onAddPost)
   $('#show-posts').on('submit', onShowPosts)
-  $('#update-post').on('submit', onUpdatePost)
+  $('body').on('click', '.edit-post-button', onShowModal)
+  $('body').on('submit', '#update-post', onUpdatePost)
+  $('body').on('click', '.remove-post-button', onRemovePost)
+
 }
 
 module.exports = {
