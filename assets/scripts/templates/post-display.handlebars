@@ -1,8 +1,8 @@
 {{#each posts as |post|}}
 
-  <ul class="post-list" data-id="{{post.id}}">
+  <ul class="post-list col-md-12" data-id="{{post.id}}">
     <div class="post-name">
-      <li>{{post.title}}<button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">DELETE</button><button class="edit-post-button btn btn-transparent" data-id="{{post.id}}">EDIT</button></li>
+      <li>{{post.title}}<button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">Delete</button><button class="edit-post-button btn btn-transparent" data-id="{{post.id}}">Edit</button></li>
     </div>
     <!-- <li>{{post.title}}</li> -->
     <div class="post-content">

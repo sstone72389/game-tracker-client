@@ -52,6 +52,9 @@ const onAddPost = function (event) {
 const addHandlers = () => {
   $('#new-post').on('submit', onAddPost)
   $('#show-posts').on('submit', onShowPosts)
+  // $('.supersize').on('click', function() {
+  //   $('#new-post').toggle()
+  // })
   // $('#update-task').on('submit', onUpdateTask)
 }
 

@@ -1,5 +1,6 @@
 body {
   background: #000;
+  padding-bottom: 3.0em;
 }
 
 .hideOnStart,
@@ -126,7 +127,8 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: .3em;
+  padding: .5em;
+  min-height: 1em;
   background-color: #cc181e;
   text-align: center;
 }
@@ -155,12 +157,24 @@ footer {
   list-style: none;
 }
 
-// .public-videos {
-//   text-align: center;
-//   padding-bottom: 5em;
-//   padding-top: 3em;
-// }
+.master-post {
+  padding-bottom: 2.5em;
+}
 
-// .post-btn {
-//   font-size: 1.3em;
+.font-large {
+  font-size: 1.3em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// .supersize {
+//   font-size: 2em;
+//   color: #cc181e;
+// }
+//
+// .start-posting {
+//   text-align: center;
+//   padding-bottom: 1em;
 // }
