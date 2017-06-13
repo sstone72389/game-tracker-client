@@ -62,7 +62,7 @@
           <input class="hideOnStart form-control" placeholder="name" type="text" name="post[name]">
         </div> -->
       <div class="form-group">
-        <input class="hideOnStart form-control zoom-control" placeholder="enter post title here" type="text" name="post[title]">
+        <input class="hideOnStart form-control zoom-control" placeholder="enter post title here" type="text" maxlength="77" name="post[title]">
       </div>
       <div class="form-group">
         <textarea class="clear-field hideOnStart form-control zoom-control" rows="5" placeholder="enter post content here" name="post[content]"></textarea>
@@ -72,6 +72,7 @@
       </div>
     </fieldset>
   </form>
+  <br>
 
   <!--Update Post Modal -->
   <div id="updatePostModal" class="modal fade" role="dialog">
@@ -87,7 +88,10 @@
           <form id="update-post">
             <fieldset>
               <div class="form-group">
-                <textarea class="form-control zoom-control" rows="5" placeholder="enter new post content here" name="post[content]"></textarea>
+                <textarea class="title-text form-control zoom-control" rows="1" maxlength="77" placeholder="enter new post title here" name="post[title]"></textarea>
+              </div>
+              <div class="form-group">
+                <textarea class="content-text form-control zoom-control" rows="7" placeholder="enter new post content here" name="post[content]"></textarea>
               </div>
               <button class="btn btn-primary" type="submit">Edit Post</button>
             </fieldset>

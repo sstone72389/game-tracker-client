@@ -31,17 +31,21 @@ const onAddPost = function (event) {
 }
 
 const onShowModal = function (event) {
+  event.preventDefault()
   const findId = $(event.target).attr('data-id')
   store.currentId = findId
+  const findTitle = $(event.target).closest('.post-list').find('.post-name span').text()
   const findContent = $(event.target).closest('.post-list').find('.post-content li').text()
-  $('.modal-content').find('textarea').val(findContent)
+  $('.modal-content').find('.content-text').val(findContent)
+  $('.modal-content').find('.title-text').val(findTitle)
   $('#updatePostModal').modal('show')
 }
 
 const onUpdatePost = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  if (data.post.content.length >= 1) {
+  // console.log(this)
+  const data = getFormFields(this)
+  if (data.post.content.length >= 1 && data.post.title.length >= 1) {
     api.updateById(data, store.currentId)
       .then(ui.updatePostSuccess)
       .then(() => {
