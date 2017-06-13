@@ -7,7 +7,6 @@ const store = require('../store.js')
 
 const onShowPosts = function (event) {
   event.preventDefault()
-  console.log('clicked show button')
   api.showPosts()
     .then(ui.showPostSuccess)
     .catch(ui.showPostFailure)
@@ -27,24 +26,28 @@ const onAddPost = function (event) {
       })
       .catch(ui.addPostfailure)
   } else {
-    console.log('please fill in all fields')
+    $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
     $('input').val('')
   }
 }
 
 const onUpdatePost = function (event) {
   const data = getFormFields(this)
-  console.log('im at events', this)
   const currentId = store.currentId
   event.preventDefault()
-  api.updateById(data, currentId)
-    .then(ui.updatePostSuccess)
-    .then(() => {
-      api.showPosts(data)
-        .then(ui.showPostSuccess)
-        .catch(ui.showPostFailure)
-    })
-    .catch(ui.updatePostFailure)
+  if (data.post.content.length >= 1) {
+    api.updateById(data, currentId)
+      .then(ui.updatePostSuccess)
+      .then(() => {
+        api.showPosts(data)
+          .then(ui.showPostSuccess)
+          .catch(ui.showPostFailure)
+      })
+      .catch(ui.updatePostFailure)
+  } else {
+    $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
+    $('input').val('')
+  }
 }
 
 const addHandlers = () => {

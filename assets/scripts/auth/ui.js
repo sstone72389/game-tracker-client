@@ -9,7 +9,6 @@ const signUpSuccess = (data) => {
 }
 
 const signUpFailure = () => {
-  console.log('sign up failure')
   $('#welcome-text').text('Sorry, Something went wrong signing up :-(')
   $('#signUpModal').modal('hide')
   $('input').val('')
@@ -17,7 +16,6 @@ const signUpFailure = () => {
 
 // add shows where applicable
 const signInSuccess = (data) => {
-  console.log('sign in success')
   $('#welcome-text').text('Thanks for signing in. Game on!')
   $('.hideOnStart').show()
   $('.hideOnStartTwo').show()
@@ -37,13 +35,13 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = (data) => {
-  $('#password-succ').text('Password changed successfully').fadeIn().delay(2000).fadeOut('slow')
+  $('#succ-fail-mess').text('Password changed successfully').fadeIn().delay(2000).fadeOut('slow')
   $('#changePasswordModal').modal('hide')
   $('input').val('')
 }
 
 const changePasswordFailure = () => {
-  $('#password-succ').text('Error changing password').fadeIn().delay(2000).fadeOut('slow')
+  $('#succ-fail-mess').text('Error changing password').fadeIn().delay(2000).fadeOut('slow')
   $('#changePasswordModal').modal('hide')
   $('input').val('')
 }

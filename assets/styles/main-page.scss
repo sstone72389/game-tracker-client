@@ -46,11 +46,6 @@ h2 {
   font-family: 'Play', sans-serif;
 }
 
-#password-succ {
-  font-size: 22px;
-  color: #C0C0C0;
-}
-
 .btn-transparent {
   background: transparent;
   color: #cc181e;
@@ -100,6 +95,14 @@ input {
   // padding: 2em .5em .5em;
 }
 
+.mess-display-two {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 2.5em;
+  // padding: 2em .5em .5em;
+}
+
 #welcome-text {
   text-align: center;
   color: white;
@@ -133,7 +136,13 @@ footer {
   text-align: center;
 }
 
-#password-succ {
+#succ-fail-mess {
+  font-size: 22px;
+  color: #cc181e;
+}
+
+#succ-fail-mess-two {
+  font-size: 22px;
   color: #cc181e;
 }
 
@@ -168,13 +177,3 @@ footer {
 .text-center {
   text-align: center;
 }
-
-// .supersize {
-//   font-size: 2em;
-//   color: #cc181e;
-// }
-//
-// .start-posting {
-//   text-align: center;
-//   padding-bottom: 1em;
-// }
