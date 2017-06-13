@@ -27,7 +27,6 @@ const onAddPost = function (event) {
       .catch(ui.addPostfailure)
   } else {
     $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
-    $('input').val('')
   }
 }
 
