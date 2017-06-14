@@ -19,8 +19,7 @@ User Stories:
 * As a user, I want to be able to login/signup
 * As a user, I want to be able to change my password
 * As a user, I want to be able to sign out
-* As a user, I want to be able to make blog posts
-* As a user, I want to be able to post embedded videos
+* As a user, I want to be able to make posts
 * As a user, I want to be able to delete my posts
 * As a user, I want to be able to modify my posts
 
