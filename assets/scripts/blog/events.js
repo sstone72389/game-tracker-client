@@ -55,8 +55,7 @@ const onUpdatePost = function (event) {
       })
       .catch(ui.updatePostFailure)
   } else {
-    $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
-    $('input').val('')
+    $('.upd-err').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
   }
 }
 
