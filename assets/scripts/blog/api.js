@@ -13,6 +13,17 @@ const addPost = (data) => {
   })
 }
 
+const addVid = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/posts',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const showPosts = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/posts/',
@@ -49,6 +60,7 @@ const updateById = (data, findId) => {
 
 module.exports = {
   addPost,
+  addVid,
   showPosts,
   removeById,
   updateById

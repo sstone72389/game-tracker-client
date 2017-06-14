@@ -6,6 +6,18 @@
         <span class="span-title">{{post.title}}</span>
         <button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">Delete</button>
         <button class="edit-post-button btn btn-transparent" data-id="{{post.id}}">Edit</button>
+
+        <form id="vid-post">
+          <fieldset>
+            <div class="form-group">
+              <input class=" form-control zoom-control" placeholder="enter YouTube URL here" type="text" name="post[name]">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-transparent btn-lg" type="submit"> Upload Video </button>
+            </div>
+          </fieldset>
+        </form>
+
       </li>
     </div>
     <!--

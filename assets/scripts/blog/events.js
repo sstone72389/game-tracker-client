@@ -24,7 +24,20 @@ const onAddPost = function (event) {
           .then(ui.showPostSuccess)
           .catch(ui.showPostFailure)
       })
-      .catch(ui.addPostfailure)
+      .catch(ui.addPostFailure)
+  } else {
+    $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
+  }
+}
+
+const onAddVid = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data.post.name)
+  if (data.post.name.length >= 1) {
+    api.addVid(data)
+      .then(ui.addVidSuccess)
+      .catch(ui.addVidFailure)
   } else {
     $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
   }
@@ -77,6 +90,7 @@ const addHandlers = () => {
   $('body').on('click', '.edit-post-button', onShowModal)
   $('body').on('submit', '#update-post', onUpdatePost)
   $('body').on('click', '.remove-post-button', onRemovePost)
+  $('body').on('submit', '#vid-post', onAddVid)
 
 }
 

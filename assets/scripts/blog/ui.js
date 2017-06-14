@@ -12,6 +12,18 @@ const addPostFailure = () => {
   $('#succ-fail-mess').text('Failure Adding Post').fadeIn().delay(2000).fadeOut('slow')
 }
 
+const addVidSuccess = (response) => {
+  console.log('addVidSuccess')
+  $('input').val('')
+  $('.vid-frame').attr('src', response.post.name)
+}
+
+const addVidFailure = () => {
+  console.log('addVidFailure')
+  $('input').val('')
+  $('#succ-fail-mess-two').text('Failure Adding Post').fadeIn().delay(2000).fadeOut('slow')
+}
+
 const showPostSuccess = (response) => {
   store.postResponse = response
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
@@ -48,5 +60,7 @@ module.exports = {
   updatePostSuccess,
   updatePostFailure,
   removePostSuccess,
-  removePostFailure
+  removePostFailure,
+  addVidSuccess,
+  addVidFailure
 }
