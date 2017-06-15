@@ -20,8 +20,6 @@ Purpose of app: A video gaming journal, allowing users to make posts and track t
 
 [Link to ERD](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497533892/image1-1_hs2aqo.jpg)
 
-App Screenshot: ![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497531110/Screen_Shot_2017-06-15_at_8.51.13_AM_vklfyl.png "Main Page")
-
 Purpose of app: A video game tracker, allowing users to make posts and track the progress of their gameplay. It will be used to upload videos along with posts to help manage games that have large maps. For example, you could take notes on where to find a secret item and upload a video to go with your post.
 
 This project is a single page application containing user authentication (sign up, sign in, sign out and change password) that interacts with a custom API built with Rails. This app can create, read, update, and delete data in an SQL database to create a custom game-tracker.
