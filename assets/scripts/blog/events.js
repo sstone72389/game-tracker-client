@@ -16,7 +16,7 @@ const onShowPosts = function (event) {
 const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  if (data.post.title.length >= 1 && data.post.content.length >= 1) {
+  if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1) {
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {
@@ -24,7 +24,7 @@ const onAddPost = function (event) {
           .then(ui.showPostSuccess)
           .catch(ui.showPostFailure)
       })
-      .catch(ui.addPostfailure)
+      .catch(ui.addPostFailure)
   } else {
     $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
   }
@@ -43,7 +43,6 @@ const onShowModal = function (event) {
 
 const onUpdatePost = function (event) {
   event.preventDefault()
-  // console.log(this)
   const data = getFormFields(this)
   if (data.post.content.length >= 1 && data.post.title.length >= 1) {
     api.updateById(data, store.currentId)
@@ -77,7 +76,6 @@ const addHandlers = () => {
   $('body').on('click', '.edit-post-button', onShowModal)
   $('body').on('submit', '#update-post', onUpdatePost)
   $('body').on('click', '.remove-post-button', onRemovePost)
-
 }
 
 module.exports = {

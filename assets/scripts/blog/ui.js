@@ -2,7 +2,7 @@
 const store = require('../store.js')
 const showPostsTemplate = require('../templates/post-display.handlebars')
 
-const addPostSuccess = () => {
+const addPostSuccess = (response) => {
   $('input').val('')
   $('.clear-field').val('')
 }
