@@ -33,7 +33,6 @@ const onAddPost = function (event) {
 const onAddVid = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data.post.name)
   if (data.post.name.length >= 1) {
     api.addVid(data)
       .then(ui.addVidSuccess)
@@ -56,7 +55,6 @@ const onShowModal = function (event) {
 
 const onUpdatePost = function (event) {
   event.preventDefault()
-  // console.log(this)
   const data = getFormFields(this)
   if (data.post.content.length >= 1 && data.post.title.length >= 1) {
     api.updateById(data, store.currentId)
@@ -84,6 +82,11 @@ const onRemovePost = (event) => {
   .catch(ui.removePostFailure)
 }
 
+// const onToggleVidForm = (event) => {
+//   console.log('clicked')
+//   $('#vid-post').toggle()
+// }
+
 const addHandlers = () => {
   $('#new-post').on('submit', onAddPost)
   $('#show-posts').on('submit', onShowPosts)
@@ -91,6 +94,7 @@ const addHandlers = () => {
   $('body').on('submit', '#update-post', onUpdatePost)
   $('body').on('click', '.remove-post-button', onRemovePost)
   $('body').on('submit', '#vid-post', onAddVid)
+  // $('body').on('click', '.vid-toggle', onToggleVidForm)
 
 }
 

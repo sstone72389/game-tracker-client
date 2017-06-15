@@ -15,7 +15,8 @@ const addPostFailure = () => {
 const addVidSuccess = (response) => {
   console.log('addVidSuccess')
   $('input').val('')
-  $('.vid-frame').attr('src', response.post.name)
+  $('.vid-content').append(response.post.name)
+  // $('#vid-post').hide()
 }
 
 const addVidFailure = () => {

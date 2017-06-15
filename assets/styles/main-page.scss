@@ -159,6 +159,7 @@ footer {
   color: #C0C0C0;
   border: 3px solid #cc181e;
   padding: .5em;
+  clear: both;
 }
 
 .post-list {
@@ -188,4 +189,12 @@ textarea {
   text-align: center;
   height: 1.1em;
   padding-bottom: .8em;
+}
+
+// #vid-post {
+//   float: right;
+// }
+
+.vid-btn {
+  font-size: 14px;
 }
