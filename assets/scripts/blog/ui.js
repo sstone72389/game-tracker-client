@@ -2,7 +2,7 @@
 const store = require('../store.js')
 const showPostsTemplate = require('../templates/post-display.handlebars')
 
-const addPostSuccess = () => {
+const addPostSuccess = (response) => {
   $('input').val('')
   $('.clear-field').val('')
 }
@@ -10,19 +10,6 @@ const addPostSuccess = () => {
 const addPostFailure = () => {
   $('input').val('')
   $('#succ-fail-mess').text('Failure Adding Post').fadeIn().delay(2000).fadeOut('slow')
-}
-
-const addVidSuccess = (response) => {
-  console.log('addVidSuccess')
-  $('input').val('')
-  $('.vid-content').append(response.post.name)
-  // $('#vid-post').hide()
-}
-
-const addVidFailure = () => {
-  console.log('addVidFailure')
-  $('input').val('')
-  $('#succ-fail-mess-two').text('Failure Adding Post').fadeIn().delay(2000).fadeOut('slow')
 }
 
 const showPostSuccess = (response) => {
@@ -61,7 +48,5 @@ module.exports = {
   updatePostSuccess,
   updatePostFailure,
   removePostSuccess,
-  removePostFailure,
-  addVidSuccess,
-  addVidFailure
+  removePostFailure
 }

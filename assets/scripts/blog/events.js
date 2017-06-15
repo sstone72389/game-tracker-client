@@ -16,7 +16,7 @@ const onShowPosts = function (event) {
 const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  if (data.post.title.length >= 1 && data.post.content.length >= 1) {
+  if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1) {
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {
@@ -25,18 +25,6 @@ const onAddPost = function (event) {
           .catch(ui.showPostFailure)
       })
       .catch(ui.addPostFailure)
-  } else {
-    $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
-  }
-}
-
-const onAddVid = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  if (data.post.name.length >= 1) {
-    api.addVid(data)
-      .then(ui.addVidSuccess)
-      .catch(ui.addVidFailure)
   } else {
     $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
   }
@@ -82,20 +70,12 @@ const onRemovePost = (event) => {
   .catch(ui.removePostFailure)
 }
 
-// const onToggleVidForm = (event) => {
-//   console.log('clicked')
-//   $('#vid-post').toggle()
-// }
-
 const addHandlers = () => {
   $('#new-post').on('submit', onAddPost)
   $('#show-posts').on('submit', onShowPosts)
   $('body').on('click', '.edit-post-button', onShowModal)
   $('body').on('submit', '#update-post', onUpdatePost)
   $('body').on('click', '.remove-post-button', onRemovePost)
-  $('body').on('submit', '#vid-post', onAddVid)
-  // $('body').on('click', '.vid-toggle', onToggleVidForm)
-
 }
 
 module.exports = {

@@ -1,32 +1,15 @@
-<div class="vid-content text-center"></div>
-
 {{#each posts as |post|}}
 
   <ul class="post-list col-md-12" data-id="{{post.id}}">
     <div class="post-name">
       <li>
-
-        <form id="vid-post">
-          <fieldset>
-            <div class="form-group">
-              <input class=" form-control zoom-control" placeholder="YouTube Embed Code" type="text" name="post[name]">
-            </div>
-            <div class="text-center">
-              <button class="vid-btn btn btn-transparent btn-lg" type="submit"> Upload </button>
-            </div>
-          </fieldset>
-        </form>
-
-
+        <iframe width="560" height="315" src="{{post.name}}" frameborder="0" allowfullscreen></iframe>
         <span class="span-title">{{post.title}}</span>
         <button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">Delete</button>
         <button class="edit-post-button btn btn-transparent" data-id="{{post.id}}">Edit</button>
-        <!-- <button class="vid-toggle btn btn-transparent" data-id="{{post.id}}">Upload Video</button> -->
-
       </li>
     </div>
-    <!--
-<li>{{post.title}}</li> -->
+
     <div class="post-content">
       <li>{{post.content}}</li>
     </div>
