@@ -9,7 +9,7 @@ Wireframes:
 * [Main page](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497533054/image1_u6hasv.jpg)
 * [User Page](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497533051/image2_thjhbc.jpg)
 
-[Link to ERD](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497194430/ERD_higt6n.jpg)
+[Link to ERD](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497533892/image1-1_hs2aqo.jpg)
 
 App Screenshot: ![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497531110/Screen_Shot_2017-06-15_at_8.51.13_AM_vklfyl.png "Main Page")
 
