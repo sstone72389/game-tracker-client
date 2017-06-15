@@ -1,6 +1,5 @@
 Links:
 * [Deployed application](https://sstone72389.github.io/game-tracker-client/)
-* [Front end Repo](https://github.com/sstone72389/game-tracker-client)
 * [Back end deployed link](https://tranquil-coast-56887.herokuapp.com/)
 * [Back end Repo](https://github.com/sstone72389/game-tracker-back-end)
 
@@ -34,4 +33,4 @@ Technologies used:
 
 HTML, CSS, JS, jQuery, JSON, AJAX, Git, GitHub, Grunt, Rails, Sass, Bootstrap, Handlebars, Ruby, Ruby on Rails, Rails Console, Node console(testing), Pry(testing).
 
-Unsolved problems: I intend for this app to eventually support the ability to upload videos via youtube. The original purpose for this game-tracker was to upload videos along with posts to help manage games that have large maps. For example, you could take notes on where to find a secret item and upload a video to go with your post.
+Unsolved problems: I would like to eventually include YouTube's (or Google's) oauth2 rather than embed links. I will likely use their third party api, rather than having a user add embed links themselves. 
