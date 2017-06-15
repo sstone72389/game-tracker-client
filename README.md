@@ -10,7 +10,11 @@ Wireframes:
 
 [Link to ERD](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497533892/image1-1_hs2aqo.jpg)
 
-App Screenshot: ![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497531110/Screen_Shot_2017-06-15_at_8.51.13_AM_vklfyl.png "Main Page")
+App Screenshots: ![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497543899/Screen_Shot_2017-06-15_at_12.24.28_PM_mcgkxp.png "Main Page")
+
+![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497543957/Screen_Shot_2017-06-15_at_12.23.50_PM_ysbsyb.png "Logged in")
+
+![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497543994/Screen_Shot_2017-06-15_at_12.24.08_PM_czflaz.png "Content")
 
 Purpose of app: A video gaming journal, allowing users to make posts and track the progress of their gameplay.
 
@@ -39,4 +43,4 @@ Technologies used:
 
 HTML, CSS, JS, jQuery, JSON, AJAX, Git, GitHub, Grunt, Rails, Sass, Bootstrap, Handlebars, Ruby, Ruby on Rails, Rails Console, Node console(testing), Pry(testing).
 
-Unsolved problems: I would like to eventually include YouTube's (or Google's) oauth2 rather than embed links. I will likely use their third party api, rather than having a user add embed links themselves. 
+Unsolved problems: I would like to eventually include YouTube's (or Google's) oauth2 rather than embed links. I will likely use their third party api, rather than having a user add embed links themselves.
