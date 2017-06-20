@@ -12,7 +12,7 @@ Wireframes:
 
 App Screenshots: ![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497569096/Screen_Shot_2017-06-15_at_7.24.37_PM_bm5vst.png "Main Page")
 
-![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1498002508/Screen_Shot_2017-06-20_at_7.47.36_PM_kwtj5n.png "Logged in")
+![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1498002814/Screen_Shot_2017-06-20_at_7.53.03_PM_pnaaea.png "Logged in")
 
 ![Game Asylum](http://res.cloudinary.com/dfu4pwocw/image/upload/v1497543994/Screen_Shot_2017-06-15_at_12.24.08_PM_czflaz.png "Content")
 
