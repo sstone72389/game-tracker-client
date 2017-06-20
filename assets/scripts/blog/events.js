@@ -20,14 +20,16 @@ const onAddPost = function (event) {
   // console.log('the data i need for share is', /[^/]*$/.exec(data.post.name)[0])
   const videoid = data.post.name.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-  if (pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
+  // if (pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
+    // console.log('url is valid')
+    // console.log('video id = ', videoid[1])
+  // } else {
+    // console.log('The YouTube url is not valid.')
+  // }
+
+  if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
     console.log('url is valid')
     console.log('video id = ', videoid[1])
-  } else {
-    console.log('The YouTube url is not valid.')
-  }
-
-  if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1) {
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {
@@ -37,7 +39,8 @@ const onAddPost = function (event) {
       })
       .catch(ui.addPostFailure)
   } else {
-    $('#succ-fail-mess-two').text('Please Fill in all fields').fadeIn().delay(2000).fadeOut('slow')
+    console.log('The YouTube url is not valid.')
+    $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(2000).fadeOut('slow')
   }
 }
 
