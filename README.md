@@ -22,6 +22,8 @@ This project is a single page application containing user authentication (sign u
 
 Approach taken when building: Planning was key, here. I started by creating wireframes and user stories. The next step for me was to build a basic HTML/CSS template that will provide a responsive user experience. From there, the next step was to build the back-end so and test via CURL scripts to ensure functionality. Once confirmed, I was able to move to the front end and create proper client interactions to access the database.
 
+URLs are validated with regualr expressions. You cannot input any type of link other than YouTube links and they must have a valid YouTube ID to be accepted. All of this is validted with regexp.
+
 User Stories:
 * As a user, I want to be able to login/signup
 * As a user, I want to be able to change my password
@@ -34,5 +36,3 @@ User Stories:
 Technologies used:
 
 HTML, CSS, JS, jQuery, JSON, AJAX, Git, GitHub, Grunt, Rails, Sass, Bootstrap, Handlebars, Ruby, Ruby on Rails, Rails Console, Node console(testing), Pry(testing).
-
-Unsolved problems: I would like to eventually include YouTube's (or Google's, rather) oauth2 rather than embed links. I will likely use their third party api, rather than having a user add embed links themselves.

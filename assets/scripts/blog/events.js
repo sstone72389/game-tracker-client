@@ -5,7 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store.js')
 
-const onShowPosts = function (event) {
+const onShowPosts = function(event) {
   event.preventDefault()
   api.showPosts()
     .then(ui.showPostSuccess)
@@ -13,23 +13,18 @@ const onShowPosts = function (event) {
 }
 
 // chains showPost to allow posts to be always visible
-const onAddPost = function (event) {
+const onAddPost = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
-  // console.log('the data i need for url is', data.post.name.substr(data.post.name.indexOf('=') + 1))
-  // console.log('the data i need for share is', /[^/]*$/.exec(data.post.name)[0])
+  // uses regexp to check that url is a valid youtube url and pulls the needed id.
+  // also checks that it starts with http:// so embed links will not work.
   const videoid = data.post.name.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-  // if (pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
-    // console.log('url is valid')
-    // console.log('video id = ', videoid[1])
-  // } else {
-    // console.log('The YouTube url is not valid.')
-  // }
-
-  if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
-    console.log('url is valid')
-    console.log('video id = ', videoid[1])
+  if (data.post.name.includes('embed')) {
+    console.log('The YouTube url is not valid.')
+    $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
+  } else if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
+    data.post.name = videoid[1]
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {
@@ -39,12 +34,11 @@ const onAddPost = function (event) {
       })
       .catch(ui.addPostFailure)
   } else {
-    console.log('The YouTube url is not valid.')
-    $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(2000).fadeOut('slow')
+    $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
   }
 }
 
-const onShowModal = function (event) {
+const onShowModal = function(event) {
   event.preventDefault()
   const findId = $(event.target).attr('data-id')
   store.currentId = findId
@@ -55,7 +49,7 @@ const onShowModal = function (event) {
   $('#updatePostModal').modal('show')
 }
 
-const onUpdatePost = function (event) {
+const onUpdatePost = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
   if (data.post.content.length >= 1 && data.post.title.length >= 1) {
