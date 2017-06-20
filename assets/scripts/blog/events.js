@@ -16,6 +16,17 @@ const onShowPosts = function (event) {
 const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
+  // console.log('the data i need for url is', data.post.name.substr(data.post.name.indexOf('=') + 1))
+  // console.log('the data i need for share is', /[^/]*$/.exec(data.post.name)[0])
+  const videoid = data.post.name.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+  const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+  if (pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
+    console.log('url is valid')
+    console.log('video id = ', videoid[1])
+  } else {
+    console.log('The YouTube url is not valid.')
+  }
+
   if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1) {
     api.addPost(data)
       .then(ui.addPostSuccess)
@@ -62,12 +73,12 @@ const onRemovePost = (event) => {
   const findId = $(event.target).attr('data-id')
   api.removeById(findId)
     .then(ui.removePostSuccess)
-  .then(() => {
-    api.showPosts()
-    .then(ui.showPostSuccess)
-    .catch(ui.showPostFailure)
-  })
-  .catch(ui.removePostFailure)
+    .then(() => {
+      api.showPosts()
+        .then(ui.showPostSuccess)
+        .catch(ui.showPostFailure)
+    })
+    .catch(ui.removePostFailure)
 }
 
 const addHandlers = () => {
