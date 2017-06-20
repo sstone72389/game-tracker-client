@@ -13,17 +13,44 @@ const onShowPosts = function (event) {
 }
 
 // chains showPost to allow posts to be always visible
+// const onAddPost = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(this)
+//   uses regexp to check that url is a valid youtube url and pulls the needed id.
+//   also checks that it starts with http:// so embed links will not work.
+//   const videoid = data.post.name.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+//   const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+//   if (data.post.name.includes('embed')) {
+//     $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
+//   } else if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
+//     data.post.name = videoid[1]
+//     api.addPost(data)
+//       .then(ui.addPostSuccess)
+//       .then(() => {
+//         api.showPosts(data)
+//           .then(ui.showPostSuccess)
+//           .catch(ui.showPostFailure)
+//       })
+//       .catch(ui.addPostFailure)
+//   } else {
+//     $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
+//   }
+// }
+
+// chains showPost to allow posts to be always visible
 const onAddPost = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   // uses regexp to check that url is a valid youtube url and pulls the needed id.
-  // also checks that it starts with http:// so embed links will not work.
   const videoid = data.post.name.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-  const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-  if (data.post.name.includes('embed')) {
+  if (data.post.name.includes('embed') && videoid != null) {
+    // to allow embed codes -- reasigning videoid to only include what's after the // embed/
+    // videoid = /[^/]*$/.exec(videoid)[0]
+    // console.log('embed id', videoid)
     $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
-  } else if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && pattern.test(data.post.name) && videoid != null && data.post.name.startsWith('http')) {
+  } else if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && videoid != null) {
     data.post.name = videoid[1]
+    console.log('using url', data.post.name)
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {
