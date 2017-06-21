@@ -22,7 +22,7 @@ This project is a single page application containing user authentication (sign u
 
 Approach taken when building: Planning was key, here. I started by creating wireframes and user stories. The next step for me was to build a basic HTML/CSS template that will provide a responsive user experience. From there, the next step was to build the back-end so and test via CURL scripts to ensure functionality. Once confirmed, I was able to move to the front end and create proper client interactions to access the database.
 
-URLs are validated with regualr expressions. You cannot input any type of link other than YouTube links and they must have a valid YouTube ID to be accepted. All of this is validated with regexp.
+URLs are validated with regular expressions. You cannot input any type of link other than YouTube links and they must have a valid YouTube ID to be accepted. All of this is validated with regexp.
 
 User Stories:
 * As a user, I want to be able to login/signup
