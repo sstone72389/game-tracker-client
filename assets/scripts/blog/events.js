@@ -18,8 +18,10 @@ const onAddPost = function (event) {
   const data = getFormFields(this)
   // uses regexp to check that url is a valid youtube url and pulls the needed id.
   const videoid = data.post.name.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-  if (data.post.name.includes('embed') && videoid != null) {
-    // to allow embed codes -- reasigning videoid to only include what's after the // embed/
+  // to be used to eventually allow embed codes as well
+  // if (data.post.name.includes('embed') && videoid != null) {
+  if (data.post.name.includes('embed')) {
+    // to allow embed codes -- reasigning videoid to only include what's after the embed/
     // videoid = /[^/]*$/.exec(videoid)[0]
     // console.log('embed id', videoid)
     $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
