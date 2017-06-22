@@ -27,7 +27,7 @@ const onAddPost = function (event) {
     $('#succ-fail-mess-two').text('Please fill in all fields and ensure YouTube URL is Valid').fadeIn().delay(3000).fadeOut('slow')
   } else if (data.post.title.length >= 1 && data.post.content.length >= 1 && data.post.name.length >= 1 && videoid != null) {
     data.post.name = videoid[1]
-    console.log('using url', data.post.name)
+    // console.log('using url', data.post.name)
     api.addPost(data)
       .then(ui.addPostSuccess)
       .then(() => {

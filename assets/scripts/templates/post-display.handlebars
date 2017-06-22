@@ -3,9 +3,14 @@
   <ul class="post-list col-md-12" data-id="{{post.id}}">
     <div class="post-name">
       <li>
-        <div class="text-center vid-div">
+        <!-- <div class="text-center vid-div">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/{{post.name}}" frameborder="0" allowfullscreen></iframe>
+        </div> -->
+
+        <div class="youtube text-center vid-div" ytid="{{post.name}}" onclick="ytload(this);">
+          <img class="resp-img" src="https://img.youtube.com/vi/{{post.name}}/maxresdefault.jpg" style="width: 560px; height: 315px;"></img>
         </div>
+
         <span class="span-title">{{post.title}}</span>
         <button class="remove-post-button btn btn-transparent" data-id="{{post.id}}">Delete</button>
         <button class="edit-post-button btn btn-transparent" data-id="{{post.id}}">Edit</button>
