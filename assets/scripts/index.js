@@ -15,9 +15,11 @@ require('./example')
 
 const authEvents = require('./auth/events.js')
 const blogEvents = require('./blog/events.js')
+// const lazyLoad = require('./lazy.js')
 
 // On document ready
 $(() => {
   authEvents.addHandlers()
   blogEvents.addHandlers()
+  // lazyLoad
 })
