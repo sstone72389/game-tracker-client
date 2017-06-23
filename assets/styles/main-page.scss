@@ -191,12 +191,6 @@ textarea {
   padding-bottom: 0.8em;
 }
 
-.vid-div {
-  margin-top: 1em;
-  // width: 560px;
-  // height: 315px;
-}
-
 .span-header {
   font-family: 'Play', sans-serif;
   font-size: 16px;
@@ -204,8 +198,30 @@ textarea {
 }
 
 .youtube {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 12px;
+  margin-top: 12px;
   width: 560px;
   height: 315px;
+}
+
+.ply-btn {
+  z-index: 10;
+}
+
+.ply-btn,
+.resp-img {
+  opacity: 1;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.list-title {
+  word-wrap: break-word;
 }

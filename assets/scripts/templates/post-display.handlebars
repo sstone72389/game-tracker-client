@@ -1,7 +1,4 @@
 <div class="text-center">
-
-  <span class="span-header">Please Click a Thumbnail to Load Your Video</span>
-
   <span class="span-title">{{post.title}}</span>
 
   {{#each posts as |post|}}
@@ -10,15 +7,10 @@
       <div class="post-name">
         <li>
 
-          <!-- does not allow lazy laod but will upload vids to iframes -->
-          <!-- <div class="text-center vid-div">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{post.name}}" frameborder="0" allowfullscreen></iframe>
-        </div> -->
-          <div class="text-center vid-div">
             <div class="youtube" ytid="{{post.name}}" onclick="ytload(this)">
+              <img class="ply-btn" src="http://res.cloudinary.com/dfu4pwocw/image/upload/v1498168581/youtube-play-icon-overlay_bihuso.png"></img>
               <img class="resp-img" src="https://img.youtube.com/vi/{{post.name}}/maxresdefault.jpg" style="width: 560px; height: 315px;"></img>
             </div>
-          </div>
 
           <div class="list-title">
             <span class="span-title">{{post.title}}</span>
