@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Game-Asylum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Play" rel="stylesheet">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <nav>
+    <button type="button" class="btn btn-transparent btn-lg hideOnSignIn left" data-toggle="modal" data-target="#signUpModal">Sign up</button>
+    <button type="button" class="btn btn-transparent btn-lg hideOnStart left" data-toggle="modal" data-target="#signOutModal">Sign out</button>
+    <h1 class="headline">Game Asylum</h1>
+    <button type="button" class="btn btn-transparent btn-lg hideOnSignInTwo right" data-toggle="modal" data-target="#signInModal">Sign in</button>
+    <button type="button" class="btn btn-transparent btn-lg hideOnStartTwo right" data-toggle="modal" data-target="#changePasswordModal">Settings</button>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <h2 id="welcome-text"> Welcome to Game Asylum!</h2>
+
+  <div class="mess-display">
+    <h2 id="succ-fail-mess"></h2>
+    <h2 id="hideMe">&nbsp;</h2>
+  </div>
+  <br>
+  <br>
+
+  <div class="page-description">
+    <p>Are you nuts for gaming? Then welcome to Game Asylum. Are you always forgetting where that secret item in Dark Souls 3 is? Didn't remember about that guy around the corner right before you get it? Your solution is finally here! Simply copy a YouTube
+      URL into the provided form and write your personalized posts to compliment it. Game on!</p>
+  </div>
+
+
+  <div class="container desc-divider">
+    <div class="row">
+      <div class="span6">
+        <img class="img-responsive" src="https://res.cloudinary.com/dfu4pwocw/image/upload/v1497052116/GAMING_game_video_computer_gamer_poster_2560x1440_x0gzov.jpg" alt="controller divider">
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center hideOnStart">
+    <p>Start Posting Below:</p>
+  </div>
+
+  <div class="mess-display-two">
+    <h2 id="succ-fail-mess-two"></h2>
+    <h2 id="hideMe">&nbsp;</h2>
+  </div>
+
+  <form id="new-post">
+    <fieldset>
+
+      <div class="form-group">
+        <input class="hideOnStart form-control zoom-control" placeholder="YouTube URL" type="text" name="post[name]">
+      </div>
+      <div class="form-group">
+        <!-- <input class="hideOnStart form-control zoom-control" placeholder="Post title here (limit 35 characters)" type="text" maxlength="35" name="post[title]"> -->
+        <input class="hideOnStart form-control zoom-control" placeholder="Post Title" type="text" maxlength="77" name="post[title]">
+      </div>
+      <div class="form-group">
+        <textarea class="clear-field hideOnStart form-control zoom-control" rows="5" placeholder="Post Content" name="post[content]"></textarea>
+      </div>
+      <div class="text-center">
+        <button class="font-large btn btn-default btn-lg hideOnStart" type="submit"> Create Post </button>
+      </div>
+    </fieldset>
+  </form>
+  <br>
+
+  <!--Update Post Modal -->
+  <div id="updatePostModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update a post, here!</h4>
+        </div>
+        <div class="modal-body">
+          <form id="update-post">
+            <fieldset>
+              <div class="form-group">
+                <textarea class="title-text form-control zoom-control" rows="1" maxlength="77" placeholder="enter new post title here" name="post[title]"></textarea>
+              </div>
+              <div class="form-group">
+                <textarea class="content-text form-control zoom-control" rows="7" placeholder="enter new post content here" name="post[content]"></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Edit Post</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="update-error">
+            <span class="upd-err"> </span>
+            <span>&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-display"></div>
+
+  <!-- Sign Up Modal -->
+  <div id="signUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Don't forget to sign up!</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up">
+            <fieldset>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="credentials[email]" type="text" placeholder="create account">
+              </div>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="credentials[password]" type="password" placeholder="password">
+              </div>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+              </div>
+              <button class="btn btn-primary" type="submit" name="submit">Sign Up!</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Sign in Modal -->
+  <div id="signInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Don't forget to sign in!</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in">
+            <fieldset>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="credentials[email]" type="text" placeholder="your username">
+              </div>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="credentials[password]" type="password" placeholder="password">
+              </div>
+              <button class="btn btn-primary" type="submit" name="submit">Sign In!</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Out Modal -->
+  <div id="signOutModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure want to sign out?</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-out">
+            <fieldset>
+              <button class="btn btn-primary" type="submit" name="submit">Sign Out!</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Change Passwrord Modal -->
+  <div id="changePasswordModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change Password Here!</h4>
+        </div>
+        <div class="modal-body">
+          <form id="change-password">
+            <fieldset>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="passwords[old]" type="password" placeholder="old password">
+              </div>
+              <div class="form-group">
+                <input class="form-control zoom-control" name="passwords[new]" type="password" placeholder=" new password">
+              </div>
+              <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer> an app by Spencer &#9827;</footer>
+  <script>
+    const ytload = function (ytobject) {
+      const ytid = ytobject.getAttribute('ytid')
+      ytobject.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + ytid + '?vq=720&autoplay=1" frameborder="0" allowfullscreen></iframe>'
+    }
+  </script>
+</body>
+
+</html>
